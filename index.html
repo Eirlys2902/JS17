@@ -24,8 +24,7 @@
         body {
             background-color: var(--bg-dark);
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 30px 30px;
             font-family: 'Nunito', sans-serif;
             display: flex;
@@ -47,11 +46,12 @@
             justify-content: center;
             border: 5px solid transparent; 
             border-radius: 10px;
-            background-image: linear-gradient(var(--panel-bg), var(--panel-bg)),var(--border-gradient);
+            background-image: linear-gradient(var(--panel-bg), var(--panel-bg)), var(--border-gradient);
             background-origin: padding-box, border-box;
             background-clip: padding-box, border-box;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),inset 0 0 10px rgba(157, 80, 187, 0.2);
-            transition: width 0.6s linear; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 
+                        inset 0 0 10px rgba(157, 80, 187, 0.2);
+            transition: width 0.6s cubic-bezier(0.5, 0, 0.1, 1); 
             overflow: hidden;
         }
 
@@ -66,13 +66,14 @@
             margin: 0;
             width: 0;
             opacity: 0;
-            transition: opacity 0.6s linear;
+            transition: opacity 0.6s cubic-bezier(0.5, 0, 0.1, 1), width 0.6s cubic-bezier(0.5, 0, 0.1, 1);
             white-space: nowrap;
         }
 
         nav.active ul {
             width: 100%;
             opacity: 1;
+            padding-right: 10px; 
         }
 
         nav ul li {
@@ -109,6 +110,7 @@
             justify-content: center;
             outline: none;
             z-index: 2;
+            flex-shrink: 0;
         }
         
         .line {
@@ -120,7 +122,7 @@
             left: 2px;
             border-radius: 4px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-            transition: transform 0.6s linear;
+            transition: transform 0.6s cubic-bezier(0.5, 0, 0.1, 1);
         }
 
         .line2 {
@@ -148,6 +150,7 @@
             <li><a href="#">Data</a></li>
             <li><a href="#">Log</a></li>
         </ul>
+        
         <button class="icon" id="toggle">
             <div class="line line1"></div>
             <div class="line line2"></div>
